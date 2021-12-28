@@ -7,9 +7,21 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "cache"
+    "cache",
+    "caching",
+    "nodecache",
+    "simple",
+    "memory"
   ],
   "author": "bayungrh",
+  "homepage": "https://github.com/bayungrh/simpcache",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bayungrh/simpcache"
+  },
+  "engines": {
+    "node": ">= 10"
+  },
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^17.0.5"
