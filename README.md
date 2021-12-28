@@ -1,6 +1,6 @@
-# ⚡️ simpcache
-
 ![simpcache](https://socialify.git.ci/bayungrh/simpcache/image?description=1&descriptionEditable=A%20simple%20in-memory%20cache%20library%20for%20NodeJS&font=KoHo&forks=1&language=1&name=1&owner=1&pattern=Charlie%20Brown&pulls=1&stargazers=1&theme=Dark)
+
+# ⚡️ simpcache
 
 A simple in-memory cache library for NodeJS
 
@@ -13,7 +13,7 @@ npm install simpcache --save
 ## Initialize
 without options
 ```javascript
-const cache = require('simpcache');
+const cache = require('simpcache')();
 ```
 with options
 ```javascript
