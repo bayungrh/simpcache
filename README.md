@@ -5,7 +5,9 @@
 A simple in-memory cache library for NodeJS
 
 # Installation
-`npm install simpcache --save`
+```bash
+npm install simpcache --save
+```
 
 # Example
 ## Initialize
