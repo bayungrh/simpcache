@@ -20,7 +20,7 @@ const cache = require('simpcache')({
 
 ### Options
 - `persistence`: (*default*: `false`) If enabled, all cache will be stored on disk.
-- `db`: (*default*: `cache.json`) if `persistence` is enabled file will be stored on cache.json file.
+- `db`: (*default*: `cache.json`) if `persistence` is enabled cache will be stored on `cache.json` file.
 
 ## Example Code
 ```javascript
@@ -40,7 +40,7 @@ console.log('foo2', cache.get('foo2'));
 
 // with timeout callback
 cache.set('foo3', 'bar3', 10000, function (key, value) {
-	console.log('foo3 deleted from cache');
+  console.log('foo3 deleted from cache');
 });
 // @returns 'foo3 deleted from cache' after cache expired.
 
