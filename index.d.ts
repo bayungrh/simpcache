@@ -1,5 +1,6 @@
 declare namespace SimpCache {
   type CallbackFunction = (key: string, value: string | string[]) => void;
+
   interface Options {
     /**
      * If enabled, all cache will be stored on disk.
