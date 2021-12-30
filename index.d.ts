@@ -1,5 +1,5 @@
 declare namespace SimpCache {
-
+  type CallbackFunction = (key: string, value: string | string[]) => void;
   interface Options {
     /**
      * If enabled, all cache will be stored on disk.
@@ -8,25 +8,25 @@ declare namespace SimpCache {
      * @memberof Options
      */
     persistence?: boolean,
-
+    
     /**
      * The file location where our objects are stored.
      * @type {string}
      * @memberof Options
-      */
+     */
     db?: string
   }
-
+  
   interface SimpCacheProvider {
     /**
-     * Add an object to the json file.
+     * Add an object to cache.
      * @param key the cache key.
      * @param value the cache value.
      * @param expire the expiration time in miliseconds.
-     * @param timeoutCallback Callback function.
+     * @param timeoutCallback Callback function (key, value).
      * @returns void
      */
-    set(key: string, value: string, expire: number, timeoutCallback: void) : void;
+    set(key: string, value: string, expire?: number, timeoutCallback?: CallbackFunction) : void;
   
     /**
      * Get an value from the cache.
@@ -61,9 +61,15 @@ declare namespace SimpCache {
     values() : object[];
   
     /**
-     * Delete all objects in the json file.
+     * Delete all objects from the cache.
      */
     flushAll() : void;
+    
+    /**
+     * Time-to-live.
+     * Returns the remaining time to live of a key that has a timeout.
+     */
+    ttl() : number;
   }
 }
 

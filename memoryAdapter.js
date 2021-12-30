@@ -82,11 +82,18 @@ function Cache () {
 
   this.size = () => Object.keys(__cache).length;
 
-  this.values = () => Object.entries(__cache);
+  this.values = () => Object.entries(__cache).map((o) => { delete o[1].timeout; return o; });
 
   this.keys = () => Object.keys(__cache);
   
   this.has = (key) => __cache.hasOwnProperty(key);
+
+  this.ttl = (key) => {
+    const oldRecord = __cache[key];
+    if (typeof oldRecord !== 'undefined' && !isNaN(oldRecord.expire)) {
+      return oldRecord.expire - Date.now();
+    } return 0;
+  }
 }
 
 const CacheProvider = () => {
@@ -99,7 +106,8 @@ const CacheProvider = () => {
     keys: (cache.keys),
     size: (cache.size),
     flushAll: (cache.flushAll),
-    values: (cache.values)
+    values: (cache.values),
+    ttl: (cache.ttl)
   }
 }
 
