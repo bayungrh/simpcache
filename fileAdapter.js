@@ -50,8 +50,11 @@ function Cache(root) {
       value: (typeof value !== 'string') ? JSON.stringify(value) : value,
       expire: expire + Date.now()
     };
+    
+    __cache[key] = record;
+    this._save();
 
-    if (!isNaN(record.expire)) {
+    if (typeof record.expire !== 'undefined' && !isNaN(record.expire)) {
       setTimeout(function() {
         this.del(key);
         if (timeoutCallback) {
@@ -59,15 +62,12 @@ function Cache(root) {
         }
       }.bind(this), expire);
     }
-    __cache[key] = record;
-    this._save();
     return value;
   }
 
   this.del = (key) => {
     delete __cache[key];
     this._save();
-    return true;
   }
 
   this.flushAll = () => {
@@ -85,7 +85,7 @@ function Cache(root) {
  
   this.ttl = (key) => {
     const oldRecord = __cache[key];
-    if (typeof oldRecord !== 'undefined' && !isNaN(oldRecord.expire)) {
+    if (typeof oldRecord !== 'undefined' && oldRecord.expire !== null && !isNaN(oldRecord.expire)) {
       return oldRecord.expire - Date.now();
     } return 0;
   }

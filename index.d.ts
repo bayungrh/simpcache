@@ -47,7 +47,7 @@ declare namespace SimpCache {
      * Delete data from the cache.
      * @param key the cache key.
      */
-    del(key: string) : boolean;
+    del(key: string) : void;
   
     /**
      * Get all keys in the cache.
@@ -70,7 +70,7 @@ declare namespace SimpCache {
      * Time-to-live.
      * Returns the remaining time to live of a key that has a timeout.
      */
-    ttl() : number;
+    ttl(key: string) : number;
   }
 }
 

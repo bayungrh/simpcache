@@ -90,7 +90,7 @@ function Cache () {
 
   this.ttl = (key) => {
     const oldRecord = __cache[key];
-    if (typeof oldRecord !== 'undefined' && !isNaN(oldRecord.expire)) {
+    if (typeof oldRecord !== 'undefined' && oldRecord.expire !== null && !isNaN(oldRecord.expire)) {
       return oldRecord.expire - Date.now();
     } return 0;
   }
