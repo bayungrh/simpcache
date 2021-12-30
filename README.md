@@ -70,3 +70,4 @@ console.log('keys', cache.keys());
 - **del(key)** `void`, remove a given key from the cache.
 - **keys()** `array`, returns the keys from the cache.
 - **flushAll()** `void`, remove all data from cache.
+- **ttl(key)** `number`, returns the remaining time to live of a key that has a timeout.
