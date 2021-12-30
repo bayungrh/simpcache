@@ -11,7 +11,8 @@
     "caching",
     "nodecache",
     "simple",
-    "memory"
+    "memory",
+    "in-memory"
   ],
   "author": "bayungrh",
   "homepage": "https://github.com/bayungrh/simpcache",
